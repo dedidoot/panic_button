@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.panic.button.feature.skck.SkckActivity" />
+
+        <variable
+            name="viewModel"
+            type="com.panic.button.feature.skck.SkckViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/middleGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/backImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/rajawali_16dp"
+            android:layout_marginTop="@dimen/rajawali_16dp"
+            android:onClick="@{ () -> activity.onBackPressed()}"
+            android:paddingStart="0dp"
+            android:paddingEnd="@dimen/rajawali_16dp"
+            android:paddingBottom="@dimen/rajawali_16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titleBar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/font_bold"
+            android:gravity="center_horizontal"
+            android:letterSpacing="0.02"
+            android:text="SKCK"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/rajawali_18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/backImageView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/backImageView" />
+
+        <LinearLayout
+            android:id="@+id/stepView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/rajawali_24dp"
+            android:layout_marginRight="@dimen/_16sdp"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="@+id/backImageView"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/backImageView">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/dataPribadiOval"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:srcCompat="@drawable/ic_border_red_dash" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/dataPribadiLine"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_red_dash_line" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/dataPasanganOval"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:srcCompat="@drawable/ic_border_red_dash" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/dataPasanganLine"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_red_dash_line" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/dataPendidikanOval"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:srcCompat="@drawable/ic_border_red_dash" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/dataPendidikanLine"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_red_dash_line" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/dataPelanggaranOval"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:srcCompat="@drawable/ic_border_red_dash" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/dataPelanggaranLine"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_red_dash_line" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/dataLainnyaOval"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:srcCompat="@drawable/ic_border_red_dash" />
+
+        </LinearLayout>
+
+        <com.panic.button.core.base.view.ViewPagerNoSwipe
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/rajawali_16dp"
+            android:layout_marginTop="@dimen/rajawali_32dp"
+            android:layout_marginRight="@dimen/rajawali_16dp"
+            android:layout_marginBottom="@dimen/rajawali_16dp"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stepView" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_gravity="end"
+            android:layout_marginBottom="@dimen/rajawali_16dp"
+            android:background="@drawable/ic_button"
+            android:fontFamily="@font/font_semi_bold"
+            android:letterSpacing="0.1"
+            android:onClick="@{ () -> activity.onNext()}"
+            android:paddingLeft="@dimen/rajawali_16dp"
+            android:paddingRight="@dimen/rajawali_16dp"
+            app:isVisible="@{viewModel.isShowButton}"
+            android:text="@{viewModel.buttonText}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/rajawali_16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_marginBottom="@dimen/rajawali_16dp"
+            app:isVisible="@{viewModel.isLoading}"
+            android:indeterminateTint="@color/red"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

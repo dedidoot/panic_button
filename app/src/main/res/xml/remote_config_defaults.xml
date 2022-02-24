@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+    <entry>
+        <key>extension_voice_record</key>
+        <value>.mp3</value>
+    </entry>
+    <entry>
+        <key>extension_video_record</key>
+        <value>.mp4</value>
+    </entry>
+    <entry>
+        <key>quality_image_compress</key>
+        <value>50</value>
+    </entry>
+    <entry>
+        <key>hospital_json</key>
+        <value>{
+            "hospitals": [
+            {
+            "name": "RSUP PERSAHABATAN",
+            "phone": "089638516606"
+            },
+            {
+            "name": "RSUD PASAR REBO",
+            "phone": "081290847772"
+            },
+            {
+            "name": "RS ADHYAKSA",
+            "phone": "08111261124"
+            },
+            {
+            "name": "RS HERMINA JATINEGARA",
+            "phone": "082246530441"
+            },
+            {
+            "name": "RS HARAPAN BUNDA",
+            "phone": "087820850831"
+            },
+            {
+            "name": "RSUD KRAMAT JATI",
+            "phone": "081387138680"
+            },
+            {
+            "name": "RS M. RIDWAN MAUREKSA",
+            "phone": "02122819569"
+            },
+            {
+            "name": "RS COLUMBIA ASIA",
+            "phone": "08119437949"
+            },
+            {
+            "name": "RS OMNI PULOMAS",
+            "phone": "02129779999"
+            },
+            {
+            "name": "RS POLRI SAID SUKANTO",
+            "phone": "085717286976"
+            },
+            {
+            "name": "RSUD BUDHI ASIH",
+            "phone": "081281430294"
+            },
+            {
+            "name": "RSUD KRAMAT JATI",
+            "phone": "081387138680"
+            },
+            {
+            "name": "RSAU DR. ESNAWAN ANTARIKSA",
+            "phone": "081283629265"
+            },
+            {
+            "name": "RS ISLAM PONDOK KOPI",
+            "phone": "085793149220"
+            },
+            {
+            "name": "RSUD CIRACAS",
+            "phone": "08111022415"
+            },
+            {
+            "name": "RS PREMIER JATINEGARA",
+            "phone": "0211500907"
+            },
+            {
+            "name": "RS UKI",
+            "phone": "085930210119"
+            },
+            {
+            "name": "RSKD DUREN SAWIT",
+            "phone": "PIC DINKES"
+            },
+            {
+            "name": "RS KARTIKA PULOMAS",
+            "phone": "08119109118"
+            },
+            {
+            "name": "RS PENGAYOMAN CIPINANG",
+            "phone": "02121015599"
+            },
+            {
+            "name": "RS HARUM SISMA MEDIKA",
+            "phone": "081315157314"
+            },
+            {
+            "name": "RSUD JATIPADANG",
+            "phone": "08118688369"
+            },
+            {
+            "name": "RS PON",
+            "phone": "08119529119"
+            },
+            {
+            "name": "RS HAJI JAKARTA",
+            "phone": "02180876060"
+            },
+            {
+            "name": "RS OLAHRAGA NASIONAL",
+            "phone": "081385777769"
+            }
+            ]
+            }</value>
+    </entry>
+</defaultsMap>

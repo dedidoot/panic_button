@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#111111</color>
+    <color name="colorPrimaryDark">#111111</color>
+    <color name="colorAccent">#111111</color>
+    <color name="bg_input">#35B9B9B9</color>
+    <color name="bg_icon_for_login">#30B9B9B9</color>
+    <color name="red">#FFEA202A</color>
+    <color name="red2">#BF1E2E</color>
+    <color name="grey">#B9B9B9</color>
+    <color name="white">#ffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="bg_grey_gelap">#323232</color>
+    <color name="bg_grey_gelap2">#3B3B3B</color>
+    <color name="orange_stats">#FF9B45</color>
+    <color name="red_stats">#F24E4D</color>
+    <color name="green_stats">#44C544</color>
+
+
+    <color name="grey_2">#f8f8f8</color>
+    <color name="green">#038609</color>
+    <color name="grey2">#DCDCDC</color>
+    <color name="grey3">#9D9D9D</color>
+    <color name="grey4">#8A8C90</color>
+    <color name="grey5_disable">#504747</color>
+    <color name="grey6">#A5A5A5</color>
+    <color name="red_30">#30D60007</color>
+</resources>

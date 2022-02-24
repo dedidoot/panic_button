@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.panic.button.feature.lostletter.FieldFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.panic.button.feature.lostletter.LostLetterViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/lostLetterView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_12sdp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:drawableEnd="@drawable/ic_calendar"
+                    android:fontFamily="@font/font_regular"
+                    android:gravity="center_vertical"
+                    android:hint="Tanggal\nKehilangan"
+                    android:onClick="@{ () -> fragment.onLostDate()}"
+                    android:text="@={viewModel.lostDate}"
+                    android:padding="@dimen/rajawali_10dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textSize="@dimen/rajawali_14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:drawableEnd="@drawable/ic_calendar"
+                    android:fontFamily="@font/font_regular"
+                    android:gravity="center_vertical"
+                    android:hint="Waktu\nKehilangan"
+                    android:onClick="@{ () -> fragment.onLostTime()}"
+                    android:text="@={viewModel.lostTime}"
+                    android:padding="@dimen/rajawali_10dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textSize="@dimen/rajawali_14sp" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:hint="Lokasi"
+                android:imeOptions="actionNext"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:layout_marginRight="@dimen/_12sdp"
+                android:inputType="text"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.location}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/additionalEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:layout_marginRight="@dimen/_12sdp"
+                android:gravity="top"
+                android:hint="Informasi Tambahan"
+                android:imeOptions="actionDone"
+                android:inputType="textMultiLine"
+                android:minLines="3"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.additionalInfo}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <Button
+                isVisible="@{!viewModel.isLoading()}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginRight="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:background="@drawable/bg_button_gradient"
+                android:fontFamily="@font/font_semi_bold"
+                android:letterSpacing="0.1"
+                android:onClick="@{ ()-> fragment.onCreateLostLetter() }"
+                android:paddingLeft="@dimen/rajawali_16dp"
+                android:paddingRight="@dimen/rajawali_16dp"
+                android:text="Kirim"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp" />
+
+            <TextView
+                android:id="@+id/errorMessageTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:visibility="gone"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:layout_marginRight="@dimen/_12sdp"
+                android:fontFamily="@font/font_regular"
+                android:text="@{viewModel.errorsMessage}"
+                app:isVisible="@{viewModel.errorsMessage.length() > 0}"
+                android:textColor="@color/red"
+                android:textSize="@dimen/_11sdp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

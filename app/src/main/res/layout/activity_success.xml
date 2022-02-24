@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/middleGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/backImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/rajawali_16dp"
+        android:layout_marginTop="@dimen/rajawali_16dp"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/font_bold"
+        android:gravity="center_horizontal"
+        android:letterSpacing="0.02"
+        android:text="Foto KTP"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="@dimen/rajawali_18sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/backImageView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/backImageView" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/tacImageView"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="@dimen/rajawali_12dp"
+        android:layout_marginTop="@dimen/rajawali_12dp"
+        android:background="@drawable/ic_red_circle"
+        android:src="@drawable/ic_white_tac"
+        app:layout_constraintLeft_toLeftOf="@+id/backImageView"
+        app:layout_constraintTop_toBottomOf="@+id/backImageView" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/line1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/bg_red_line"
+        app:layout_constraintBottom_toBottomOf="@+id/tacImageView"
+        app:layout_constraintLeft_toRightOf="@+id/tacImageView"
+        app:layout_constraintRight_toLeftOf="@+id/profileImageView"
+        app:layout_constraintTop_toTopOf="@+id/tacImageView" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/profileImageView"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/ic_red_circle"
+        android:src="@drawable/ic_white_profile"
+        app:layout_constraintBottom_toBottomOf="@+id/tacImageView"
+        app:layout_constraintLeft_toLeftOf="@+id/middleGuideline"
+        app:layout_constraintRight_toRightOf="@+id/middleGuideline"
+        app:layout_constraintTop_toTopOf="@+id/tacImageView" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/line2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/bg_red_line"
+        app:layout_constraintBottom_toBottomOf="@+id/profileImageView"
+        app:layout_constraintLeft_toRightOf="@+id/profileImageView"
+        app:layout_constraintRight_toLeftOf="@+id/icRegister"
+        app:layout_constraintTop_toTopOf="@+id/profileImageView" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/icRegister"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="@dimen/rajawali_32dp"
+        android:background="@drawable/ic_red_circle"
+        android:padding="@dimen/rajawali_12dp"
+        android:src="@drawable/ic_profile_register"
+        app:layout_constraintBottom_toBottomOf="@+id/tacImageView"
+        app:layout_constraintLeft_toRightOf="@+id/line2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tacImageView" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/icSuccess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/rajawali_100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_done" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/selamat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/rajawali_16dp"
+        android:fontFamily="@font/font_bold"
+        android:gravity="center_horizontal"
+        android:text="Selamat!"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icSuccess" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/rajawali_4dp"
+        android:fontFamily="@font/font_bold"
+        android:gravity="center_horizontal"
+        android:text="Aplikasi anda sedang diverifkasi"
+        android:textColor="@color/white"
+        android:textSize="@dimen/rajawali_18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selamat" />
+
+    <Button
+        android:layout_width="124dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/ic_button"
+        android:fontFamily="@font/font_semi_bold"
+        android:letterSpacing="0.1"
+        android:onClick="buttonOkeSuccess"
+        android:text="Oke"
+        android:textColor="@color/white"
+        android:textSize="@dimen/rajawali_16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/rajawali_32dp"
+        android:fontFamily="@font/font_regular"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="4sp"
+        android:text="Anda akan diberitahu via email bila telah terverifikasi"
+        android:textColor="@color/white"
+        android:textSize="@dimen/rajawali_18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

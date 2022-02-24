@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.panic.button.feature.skck.PersonalFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.panic.button.feature.skck.SkckViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_regular"
+                android:text="Data Pribadi"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_24dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:hint="Nomor Ktp"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLines="1"
+                android:maxLength="16"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepOneModel.citizenCardId}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_24dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:hint="Keperluan SKCK"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepOneModel.purpose}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/wniWnaTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Warga Negara"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onWniWna()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_24dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:hint="Nama Lengkap"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepOneModel.fullName}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_24dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:hint="Tempat Lahir"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepOneModel.placeOfBirth}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_calendar"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Tanggal Lahir"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onDate()}"
+                android:padding="@dimen/rajawali_10dp"
+                android:text="@={viewModel.skckStepOneModel.dateOfBirth}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/genderTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Jenis Kelamin"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onGender()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/statusMarriageTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Status Perkawianan"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onStatusMarriage()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/religionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Agama"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onReligion()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_24dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:hint="Pekerjaan"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepOneModel.job}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_regular"
+                android:text="Data Kontak Pribadi"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:textSize="@dimen/_11sdp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_24dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:hint="Nomor Hp"
+                android:imeOptions="actionNext"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepOneModel.phone}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_24dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:gravity="top"
+                android:hint="Alamat KTP"
+                android:imeOptions="actionNext"
+                android:inputType="textMultiLine"
+                android:minLines="3"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepOneModel.citizenCardAddress}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/provinceTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Provinsi"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onProvince()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cityTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Kota"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onCity()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/subDistrictTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Kecamatan"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onSubDistrict()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/villageTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Kelurahan"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onVillage()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_24dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:gravity="top"
+                android:hint="Alamat Domisili"
+                android:imeOptions="actionNext"
+                android:inputType="textMultiLine"
+                android:minLines="3"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepOneModel.currentAddress}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_regular"
+                android:text="Data Fisik"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:textSize="@dimen/_11sdp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@color/white" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/rajawali_24dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:fontFamily="@font/font_regular"
+                    android:hint="Tinggi Badan"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:padding="@dimen/rajawali_12dp"
+                    android:text="@={viewModel.skckStepOneModel.height}"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:textSize="@dimen/rajawali_14sp" />
+
+                <View
+                    android:layout_width="@dimen/rajawali_16dp"
+                    android:layout_height="1dp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/rajawali_24dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:fontFamily="@font/font_regular"
+                    android:hint="Berat Badan"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:padding="@dimen/rajawali_12dp"
+                    android:text="@={viewModel.skckStepOneModel.weight}"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:textSize="@dimen/rajawali_14sp" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/faceShapeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Bentuk Wajah"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onFaceShape()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/colorSkinTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Warna Kulit"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onColorSkin()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/hairSkinTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Warna Rambut"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onHairSkin()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/bloodTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Golongan Darah"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onBloodType()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/bodyTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Bentuk Tubuh"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onBodyShape()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/headTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Bentuk Kepala"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onHead()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/hairTypeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Jenis Rambut"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onHairType()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/foreheadTypeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Dahi"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onForeheadType()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/eyeColorTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Warna Mata"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onEyeColor()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/eyeDisorderTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Kelainan Mata"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onEyeDisorder()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/noseShapeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Jenis Hidung"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onNoseShape()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lipShapeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Jenis Bibir"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onLipShape()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/teethShapeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Jenis Gigi"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onTeethShape()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/chinShapeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Jenis Dagu"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onChinShape()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/earShapeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Telinga"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onEarShape()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <TextView
+                android:id="@+id/errorMessageTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:visibility="gone"
+                android:fontFamily="@font/font_regular"
+                android:text="@{viewModel.stepOneErrorsMessage}"
+                app:isVisible="@{viewModel.stepOneErrorsMessage.length() > 0}"
+                android:textColor="@color/red"
+                android:textSize="@dimen/_11sdp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.panic.button.feature.police.CovidOfficerActivity" />
+
+        <variable
+            name="viewModel"
+            type="com.panic.button.feature.police.PoliceViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/settingImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:onClick="onSettingPolice"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_white_setting" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/font_bold"
+                android:text="Covid Officer"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/inputView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/settingImageView">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_32sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:gravity="center_horizontal"
+                    android:text="Masukkan Nomor KTP"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/nikEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:fontFamily="@font/font_regular"
+                    android:hint="NIK"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="@dimen/rajawali_12dp"
+                    android:text="@={viewModel.nik}"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:textSize="@dimen/_12sdp" />
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/ic_button"
+                    android:fontFamily="@font/font_semi_bold"
+                    android:letterSpacing="0.1"
+                    android:onClick="@{ () -> activity.onCheckNik()}"
+                    android:paddingLeft="@dimen/rajawali_16dp"
+                    android:paddingRight="@dimen/rajawali_16dp"
+                    android:text="Check"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/rajawali_16sp"
+                    app:isVisible="@{!viewModel.isLoading}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <ProgressBar
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:indeterminateTint="@color/red"
+                    android:visibility="gone"
+                    app:isVisible="@{viewModel.isLoading}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/messageTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:fontFamily="@font/font_semi_bold"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="0.02"
+                    android:lineSpacingExtra="@dimen/_2sdp"
+                    android:text="Data belum ditemukan, mohon untuk didaftarkan terlebih dahulu"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/formView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:fontFamily="@font/font_regular"
+                        android:gravity="center_horizontal"
+                        android:text="Nama Lengkap"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/nameEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@drawable/bg_grey_radius_4"
+                        android:fontFamily="@font/font_regular"
+                        android:hint="Nama"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:padding="@dimen/rajawali_12dp"
+                        android:text="@={viewModel.name}"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/grey"
+                        android:textCursorDrawable="@drawable/cursor"
+                        android:textSize="@dimen/rajawali_14sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:fontFamily="@font/font_regular"
+                        android:gravity="center_horizontal"
+                        android:text="Nomor Handphone"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/phoneEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@drawable/bg_grey_radius_4"
+                        android:fontFamily="@font/font_regular"
+                        android:hint="Nomor Handphone"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:padding="@dimen/rajawali_12dp"
+                        android:text="@={viewModel.phone}"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/grey"
+                        android:textCursorDrawable="@drawable/cursor"
+                        android:textSize="@dimen/rajawali_14sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:fontFamily="@font/font_regular"
+                        android:gravity="center_horizontal"
+                        android:text="Alamat Lengkap"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/addressEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@drawable/bg_grey_radius_4"
+                        android:fontFamily="@font/font_regular"
+                        android:gravity="top"
+                        android:hint="Alamat"
+                        android:imeOptions="actionDone"
+                        android:inputType="textMultiLine"
+                        android:minLines="3"
+                        android:padding="@dimen/rajawali_12dp"
+                        android:text="@={viewModel.address}"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/grey"
+                        android:textCursorDrawable="@drawable/cursor"
+                        android:textSize="@dimen/rajawali_14sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/statusTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:fontFamily="@font/font_regular"
+                        android:gravity="center_horizontal"
+                        android:text="Status"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/statusEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@drawable/bg_grey_radius_4"
+                        android:editable="false"
+                        android:fontFamily="@font/font_regular"
+                        android:padding="@dimen/rajawali_12dp"
+                        android:text="@{viewModel.status}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/rajawali_14sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:fontFamily="@font/font_regular"
+                        android:gravity="center_horizontal"
+                        android:text="Provinsi"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="gone" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/provinceTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@drawable/bg_grey_radius_4"
+                        android:drawableEnd="@drawable/ic_white_drop_down"
+                        android:fontFamily="@font/font_regular"
+                        android:gravity="center_vertical"
+                        android:hint="Provinsi"
+                        android:maxLines="1"
+                        android:onClick="@{ () -> activity.onProvince()}"
+                        android:padding="@dimen/rajawali_12dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/rajawali_14sp"
+                        android:visibility="gone" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:fontFamily="@font/font_regular"
+                        android:gravity="center_horizontal"
+                        android:text="Kota"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="gone" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cityTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@drawable/bg_grey_radius_4"
+                        android:drawableEnd="@drawable/ic_white_drop_down"
+                        android:fontFamily="@font/font_regular"
+                        android:gravity="center_vertical"
+                        android:hint="Kota"
+                        android:maxLines="1"
+                        android:onClick="@{ () -> activity.onCity()}"
+                        android:padding="@dimen/rajawali_12dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/rajawali_14sp"
+                        android:visibility="gone" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/titleSubDistrictTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:fontFamily="@font/font_regular"
+                        android:gravity="center_horizontal"
+                        android:text="Kecamatan"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/subDistrictTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@drawable/bg_grey_radius_4"
+                        android:drawableEnd="@drawable/ic_white_drop_down"
+                        android:fontFamily="@font/font_regular"
+                        android:gravity="center_vertical"
+                        android:hint="Kecamatan"
+                        android:maxLines="1"
+                        android:onClick="@{ () -> activity.onSubDistrict()}"
+                        android:padding="@dimen/rajawali_12dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/rajawali_14sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/titleVillageTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:fontFamily="@font/font_regular"
+                        android:gravity="center_horizontal"
+                        android:text="Kelurahan"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/villageTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@drawable/bg_grey_radius_4"
+                        android:drawableEnd="@drawable/ic_white_drop_down"
+                        android:fontFamily="@font/font_regular"
+                        android:gravity="center_vertical"
+                        android:hint="Kelurahan"
+                        android:maxLines="1"
+                        android:onClick="@{ () -> activity.onVillageOffice()}"
+                        android:padding="@dimen/rajawali_12dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/rajawali_14sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/titleHamletTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:fontFamily="@font/font_regular"
+                        android:gravity="center_horizontal"
+                        android:text="RW"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/hamletTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@drawable/bg_grey_radius_4"
+                        android:drawableEnd="@drawable/ic_white_drop_down"
+                        android:fontFamily="@font/font_regular"
+                        android:gravity="center_vertical"
+                        android:hint="RW"
+                        android:maxLines="1"
+                        android:onClick="@{ () -> activity.onHamlet()}"
+                        android:padding="@dimen/rajawali_12dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/rajawali_14sp" />
+
+                    <Button
+                        android:id="@+id/registerButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@drawable/ic_button"
+                        android:fontFamily="@font/font_semi_bold"
+                        android:letterSpacing="0.1"
+                        android:onClick="@{ () -> activity.onRegister()}"
+                        android:paddingLeft="@dimen/rajawali_16dp"
+                        android:paddingRight="@dimen/rajawali_16dp"
+                        android:text="Simpan"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/rajawali_16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent" />
+
+                    <ProgressBar
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:indeterminateTint="@color/red"
+                        android:visibility="gone"
+                        app:isVisible="@{viewModel.isLoading}" />
+
+                    <TextView
+                        android:id="@+id/errorMessageTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:visibility="gone"
+                        android:layout_marginLeft="@dimen/_12sdp"
+                        android:layout_marginRight="@dimen/_12sdp"
+                        android:fontFamily="@font/font_regular"
+                        android:text="@{viewModel.errorsMessage}"
+                        app:isVisible="@{viewModel.errorsMessage.length() > 0}"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_50sdp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/menuView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="12dp"
+                android:onClick="onMenu"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/settingImageView">
+
+                <LinearLayout
+                    android:id="@+id/logoutView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginRight="@dimen/_12sdp"
+                    android:onClick="onLogout"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/ic_logout" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:text="Logout"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <ProgressBar
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:indeterminateTint="@color/red"
+                        android:visibility="gone"
+                        app:isVisible="@{viewModel.isLoading}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/cancelView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    android:onClick="onCancel"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/logoutView">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/ic_white_clear" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:text="Cancel"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>

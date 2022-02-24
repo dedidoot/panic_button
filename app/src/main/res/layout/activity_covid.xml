@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.panic.button.feature.covid.CovidActivity" />
+
+        <variable
+            name="viewModel"
+            type="com.panic.button.feature.covid.CovidViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/backImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/rajawali_16dp"
+            android:layout_marginTop="@dimen/rajawali_16dp"
+            android:onClick="@{ () -> activity.onBackPressed()}"
+            android:paddingStart="0dp"
+            android:paddingEnd="@dimen/rajawali_16dp"
+            android:paddingBottom="@dimen/rajawali_16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titlebar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/font_bold"
+            android:gravity="center_horizontal"
+            android:letterSpacing="0.02"
+            android:text="COVID-19"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/rajawali_18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/backImageView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/backImageView" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titlebar">
+
+            <com.panic.button.core.base.view.RajawaliWebView
+                android:id="@+id/webView"
+                android:layout_width="400dp"
+                android:layout_height="300dp"
+                android:layout_marginTop="@dimen/_16sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminateTint="@color/red"
+                app:layout_constraintBottom_toBottomOf="@+id/webView"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/webView" />
+
+            <LinearLayout
+                android:id="@+id/tabView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/webView">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="?selectableItemBackground"
+                    android:onClick="@{ () -> activity.onCaseDataTabView() }"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/caseDataTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableBottom="@drawable/bg_red_line"
+                        android:fontFamily="@font/font_bold"
+                        android:gravity="center_horizontal"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Data Kasus"
+                        android:textColor="@color/white" />
+
+                    <View
+                        android:id="@+id/caseDataLineView"
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="2dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@color/white" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="?selectableItemBackground"
+                    android:onClick="@{ () -> activity.onHospitalTabView() }"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/hospitalTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableBottom="@drawable/bg_red_line"
+                        android:fontFamily="@font/font_regular"
+                        android:gravity="center_horizontal"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Rumah Sakit"
+                        android:textColor="@color/white" />
+
+                    <View
+                        android:id="@+id/hospitalLineView"
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="2dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@color/white"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:clipToPadding="false"
+                android:fillViewport="true"
+                android:paddingBottom="@dimen/_20sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tabView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/covidView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/webView">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/text"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_16sdp"
+                            android:layout_marginTop="@dimen/rajawali_32dp"
+                            android:layout_marginRight="@dimen/_16sdp"
+                            android:fontFamily="@font/font_semi_bold"
+                            android:text="Data Kasus Per Kecamatan"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/rajawali_16sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/line"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="@dimen/_16sdp"
+                            android:layout_marginTop="@dimen/rajawali_8dp"
+                            android:layout_marginRight="@dimen/_16sdp"
+                            android:background="@color/white"
+                            app:layout_constraintTop_toBottomOf="@+id/text" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/subDistrictTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_16sdp"
+                            android:layout_marginTop="@dimen/rajawali_16dp"
+                            android:layout_marginRight="@dimen/_16sdp"
+                            android:background="@drawable/bg_grey_radius_4"
+                            android:drawableEnd="@drawable/ic_white_drop_down"
+                            android:fontFamily="@font/font_regular"
+                            android:gravity="center_vertical"
+                            android:hint="Kecamatan"
+                            android:maxLines="1"
+                            android:onClick="@{ () -> activity.onSubDistrict()}"
+                            android:padding="@dimen/rajawali_12dp"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/grey"
+                            android:textSize="@dimen/rajawali_14sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/line" />
+
+                        <LinearLayout
+                            android:id="@+id/headerStatisticView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_16sdp"
+                            android:orientation="horizontal"
+                            android:visibility="gone"
+                            app:layout_constraintTop_toBottomOf="@+id/subDistrictTextView">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="#FF9B45"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:visibility="gone">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_6sdp"
+                                    android:fontFamily="@font/font_semi_bold"
+                                    android:text="Dirawat"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_12sdp" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_4sdp"
+                                    android:fontFamily="@font/font_semi_bold"
+                                    android:gravity="center"
+                                    android:text="554"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_18sdp" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_4sdp"
+                                    android:layout_marginBottom="@dimen/_6sdp"
+                                    android:fontFamily="@font/font_semi_bold"
+                                    android:gravity="center"
+                                    android:text="3.9% dari terkonfirmasi"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_12sdp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="#F24E4D"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:visibility="gone">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_6sdp"
+                                    android:fontFamily="@font/font_semi_bold"
+                                    android:text="Meninggal"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_12sdp" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_4sdp"
+                                    android:fontFamily="@font/font_semi_bold"
+                                    android:gravity="center"
+                                    android:text="702"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_18sdp" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_4sdp"
+                                    android:layout_marginBottom="@dimen/_6sdp"
+                                    android:fontFamily="@font/font_semi_bold"
+                                    android:gravity="center"
+                                    android:text="4.9% dari terkonfirmasi"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_12sdp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="#44C544"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:visibility="gone">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_6sdp"
+                                    android:fontFamily="@font/font_semi_bold"
+                                    android:text="Sembuh"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_12sdp" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_4sdp"
+                                    android:fontFamily="@font/font_semi_bold"
+                                    android:gravity="center"
+                                    android:text="90.000"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_18sdp" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_4sdp"
+                                    android:layout_marginBottom="@dimen/_6sdp"
+                                    android:fontFamily="@font/font_semi_bold"
+                                    android:gravity="center"
+                                    android:text="64.9% dari terkonfirmasi"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_12sdp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/kelurahanView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_16sdp"
+                            android:background="@drawable/bg_grey_radius_4"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/headerStatisticView" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <LinearLayout
+                        android:id="@+id/hospitalView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="vertical"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+            </ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

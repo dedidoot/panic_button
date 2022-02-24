@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_black_radius_top_20"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/rajawali_24dp"
+    android:paddingRight="@dimen/rajawali_24dp"
+    android:paddingBottom="@dimen/rajawali_24dp">
+
+    <FrameLayout
+        android:id="@+id/lineView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="@dimen/rajawali_80dp"
+            android:layout_height="@dimen/rajawali_5dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_line_radius" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_26sdp" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/covidView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_corona_circle">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_corona" />
+            </FrameLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:maxLines="2"
+                android:ellipsize="middle"
+                android:fontFamily="@font/font_semi_bold"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="Covid-19"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/rajawali_12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/skckView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_skck_circle">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_skck" />
+            </FrameLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:maxLines="2"
+                android:ellipsize="middle"
+                android:fontFamily="@font/font_semi_bold"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="SKCK"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/rajawali_12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/suratKehilangan"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_kehilangan_circle">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_kehilangan" />
+            </FrameLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:fontFamily="@font/font_semi_bold"
+                android:maxLines="2"
+                android:ellipsize="middle"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="4sp"
+                android:text="Surat\nKehilangan"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/rajawali_12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/prayerScheduleView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_shalat_circle">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_shalat" />
+            </FrameLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:fontFamily="@font/font_semi_bold"
+                android:gravity="center"
+                android:maxLines="2"
+                android:ellipsize="middle"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="4sp"
+                android:text="Jadwal\nSholat"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/rajawali_12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/rajawali_24dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/reportPolice"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_report_police_circle">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_report_police" />
+            </FrameLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:fontFamily="@font/font_semi_bold"
+                android:gravity="center"
+                android:maxLines="2"
+                android:ellipsize="middle"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="4sp"
+                android:text="Lapor\nPolisi"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/rajawali_12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rondaView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_ronda_circle">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_ronda" />
+            </FrameLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:fontFamily="@font/font_semi_bold"
+                android:gravity="center"
+                android:maxLines="2"
+                android:ellipsize="middle"
+                android:includeFontPadding="false"
+                android:text="Ronda"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/rajawali_12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/settingView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_setting_circle">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_setting" />
+            </FrameLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:fontFamily="@font/font_semi_bold"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:maxLines="2"
+                android:ellipsize="middle"
+                android:text="Pengaturan"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/rajawali_12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/logoutView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_logout_circle">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_logout" />
+            </FrameLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:fontFamily="@font/font_semi_bold"
+                android:gravity="center"
+                android:maxLines="2"
+                android:ellipsize="middle"
+                android:includeFontPadding="false"
+                android:text="Logout"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/rajawali_12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

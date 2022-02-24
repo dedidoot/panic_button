@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.panic.button.feature.registerprofile.RegisterProfileActivity" />
+
+
+        <variable
+            name="viewModel"
+            type="com.panic.button.feature.registerprofile.RegisterProfileViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/middleGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/backImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/rajawali_16dp"
+            android:layout_marginTop="@dimen/rajawali_16dp"
+            android:onClick="@{ () -> activity.onBackPressed()}"
+            android:paddingStart="0dp"
+            android:paddingEnd="@dimen/rajawali_16dp"
+            android:paddingBottom="@dimen/rajawali_16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titleBar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/font_bold"
+            android:gravity="center_horizontal"
+            android:letterSpacing="0.02"
+            android:text="Profile"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/rajawali_18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/backImageView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/backImageView" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/tacImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/rajawali_12dp"
+            android:layout_marginTop="@dimen/rajawali_24dp"
+            android:background="@drawable/ic_red_circle"
+            android:src="@drawable/ic_white_tac"
+            app:layout_constraintLeft_toLeftOf="@+id/backImageView"
+            app:layout_constraintTop_toBottomOf="@+id/backImageView" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/line1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/bg_red_line"
+            app:layout_constraintBottom_toBottomOf="@+id/tacImageView"
+            app:layout_constraintLeft_toRightOf="@+id/tacImageView"
+            app:layout_constraintRight_toLeftOf="@+id/profileImageView"
+            app:layout_constraintTop_toTopOf="@+id/tacImageView" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/profileImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_profile"
+            app:layout_constraintBottom_toBottomOf="@+id/tacImageView"
+            app:layout_constraintLeft_toLeftOf="@+id/middleGuideline"
+            app:layout_constraintRight_toRightOf="@+id/middleGuideline"
+            app:layout_constraintTop_toTopOf="@+id/tacImageView" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/line2"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_red_dash_line"
+            app:layout_constraintRight_toLeftOf="@+id/ktpImageView"
+            app:layout_constraintBottom_toBottomOf="@+id/profileImageView"
+            app:layout_constraintLeft_toRightOf="@+id/profileImageView"
+            app:layout_constraintTop_toTopOf="@+id/profileImageView" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ktpImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_ktp"
+            android:layout_marginEnd="@dimen/rajawali_16dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/tacImageView"
+            app:layout_constraintTop_toTopOf="@+id/tacImageView" />
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/rajawali_16dp"
+            android:layout_marginTop="@dimen/rajawali_32dp"
+            android:layout_marginRight="@dimen/rajawali_16dp"
+            android:layout_marginBottom="@dimen/rajawali_16dp"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintTop_toBottomOf="@+id/tacImageView">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:focusable="true"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="@dimen/rajawali_80dp"
+                    android:layout_height="@dimen/rajawali_80dp"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="@{ () -> activity.onGallery()}">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/avatarImageView"
+                        android:layout_width="@dimen/rajawali_80dp"
+                        android:layout_height="@dimen/rajawali_80dp"
+                        android:layout_gravity="center_horizontal"
+                        android:scaleType="centerCrop"
+                        android:src="@color/red2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:loadUrl="@{viewModel.registerModel.avatarUrlSession}"
+                        app:riv_border_width="0dp"
+                        app:riv_oval="true" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/cameraImageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:isVisible="@{viewModel.registerModel.avatarUrlSession.length() == 0}"
+                        app:srcCompat="@drawable/ic_white_camera" />
+
+                    <ProgressBar
+                        android:id="@+id/loadingImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:indeterminateTint="@color/white"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/rajawali_32dp"
+                    android:fontFamily="@font/font_semi_bold"
+                    android:gravity="center_horizontal"
+                    android:text="Data Diri"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/rajawali_16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/rajawali_8dp"
+                    android:background="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:text="Nama Lengkap"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_10sdp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:fontFamily="@font/font_regular"
+                    android:hint="Nama"
+                    android:imeOptions="actionNext"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                    android:maxLines="1"
+                    android:padding="@dimen/rajawali_12dp"
+                    android:text="@={viewModel.registerModel.name}"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:textSize="@dimen/rajawali_14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:text="Tempat Lahir"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_10sdp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:fontFamily="@font/font_regular"
+                    android:hint="Tempat Lahir"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="@dimen/rajawali_12dp"
+                    android:text="@={viewModel.registerModel.birthPlace}"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:textSize="@dimen/rajawali_14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:gravity="center_horizontal"
+                    android:text="Tanggal Lahir"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_10sdp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:drawableEnd="@drawable/ic_calendar"
+                    android:fontFamily="@font/font_regular"
+                    android:gravity="center_vertical"
+                    android:hint="Tanggal Lahir"
+                    android:maxLines="1"
+                    android:onClick="@{ () -> activity.onBirthday()}"
+                    android:padding="@dimen/rajawali_10dp"
+                    android:text="@={viewModel.registerModel.birthday}"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textSize="@dimen/rajawali_14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:text="Jenis Kelamin"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_10sdp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/genderTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:drawableEnd="@drawable/ic_white_drop_down"
+                    android:fontFamily="@font/font_regular"
+                    android:gravity="center_vertical"
+                    android:hint="Jenis Kelamin"
+                    android:maxLines="1"
+                    android:onClick="@{ () -> activity.onGender()}"
+                    android:padding="@dimen/rajawali_12dp"
+                    android:text="@={viewModel.registerModel.gender}"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textSize="@dimen/rajawali_14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:text="Nomor KTP"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_10sdp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/citizenCardIdEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:fontFamily="@font/font_regular"
+                    android:hint="Nomor Ktp"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="16"
+                    android:maxLines="1"
+                    android:padding="@dimen/rajawali_12dp"
+                    android:text="@={viewModel.registerModel.citizenCardId}"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:textSize="@dimen/rajawali_14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/rajawali_32dp"
+                    android:fontFamily="@font/font_semi_bold"
+                    android:gravity="center_horizontal"
+                    android:text="Data Kontak"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/rajawali_16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/rajawali_8dp"
+                    android:background="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:text="Nomor HP"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_10sdp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:fontFamily="@font/font_regular"
+                    android:hint="Nomor Handphone"
+                    android:imeOptions="actionNext"
+                    android:inputType="phone"
+                    android:maxLines="1"
+                    android:padding="@dimen/rajawali_12dp"
+                    android:text="@={viewModel.registerModel.phone}"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:textSize="@dimen/rajawali_14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/emailTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:text="Email"
+                    android:visibility="gone"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_10sdp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/emailEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:fontFamily="@font/font_regular"
+                    android:hint="Email"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:padding="@dimen/rajawali_12dp"
+                    android:text="@={viewModel.registerModel.email}"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:textSize="@dimen/rajawali_14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:text="Alamat Lengkap"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_10sdp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:fontFamily="@font/font_regular"
+                    android:gravity="top"
+                    android:hint="Alamat"
+                    android:imeOptions="actionNext"
+                    android:inputType="textMultiLine"
+                    android:minLines="3"
+                    android:padding="@dimen/rajawali_12dp"
+                    android:text="@={viewModel.registerModel.address}"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:textSize="@dimen/rajawali_14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:text="Nomor rumah / Nomor RT"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_10sdp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_grey_radius_4"
+                        android:fontFamily="@font/font_regular"
+                        android:hint="Nomor Rumah"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:padding="@dimen/rajawali_12dp"
+                        android:text="@={viewModel.registerModel.houseNumber}"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/grey"
+                        android:textCursorDrawable="@drawable/cursor"
+                        android:textSize="@dimen/rajawali_14sp" />
+
+                    <View
+                        android:layout_width="@dimen/rajawali_16dp"
+                        android:layout_height="1dp" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_grey_radius_4"
+                        android:fontFamily="@font/font_regular"
+                        android:hint="RT"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:padding="@dimen/rajawali_12dp"
+                        android:text="@={viewModel.registerModel.rt}"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/grey"
+                        android:textCursorDrawable="@drawable/cursor"
+                        android:textSize="@dimen/rajawali_14sp" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:text="Provinsi"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_10sdp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/provinceTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:drawableEnd="@drawable/ic_white_drop_down"
+                    android:fontFamily="@font/font_regular"
+                    android:gravity="center_vertical"
+                    android:hint="Provinsi"
+                    android:maxLines="1"
+                    android:onClick="@{ () -> activity.onProvince()}"
+                    android:padding="@dimen/rajawali_12dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textSize="@dimen/rajawali_14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:text="Kota"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_10sdp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/cityTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:drawableEnd="@drawable/ic_white_drop_down"
+                    android:fontFamily="@font/font_regular"
+                    android:gravity="center_vertical"
+                    android:hint="Kota"
+                    android:maxLines="1"
+                    android:onClick="@{ () -> activity.onCity()}"
+                    android:padding="@dimen/rajawali_12dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textSize="@dimen/rajawali_14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:text="Kecamatan"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_10sdp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/subDistrictTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:drawableEnd="@drawable/ic_white_drop_down"
+                    android:fontFamily="@font/font_regular"
+                    android:gravity="center_vertical"
+                    android:hint="Kecamatan"
+                    android:maxLines="1"
+                    android:onClick="@{ () -> activity.onSubDistrict()}"
+                    android:padding="@dimen/rajawali_12dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textSize="@dimen/rajawali_14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:text="Kelurahan"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_10sdp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/villageTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:drawableEnd="@drawable/ic_white_drop_down"
+                    android:fontFamily="@font/font_regular"
+                    android:gravity="center_vertical"
+                    android:hint="Kelurahan"
+                    android:maxLines="1"
+                    android:onClick="@{ () -> activity.onVillageOffice()}"
+                    android:padding="@dimen/rajawali_12dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textSize="@dimen/rajawali_14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:text="RW"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_10sdp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/hamletTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:drawableEnd="@drawable/ic_white_drop_down"
+                    android:fontFamily="@font/font_regular"
+                    android:gravity="center_vertical"
+                    android:hint="RW"
+                    android:maxLines="1"
+                    android:onClick="@{ () -> activity.onHamlet()}"
+                    android:padding="@dimen/rajawali_12dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textSize="@dimen/rajawali_14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:text="Kode pos"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_10sdp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:fontFamily="@font/font_regular"
+                    android:hint="Kode Pos"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:maxLines="1"
+                    android:padding="@dimen/rajawali_12dp"
+                    android:text="@={viewModel.registerModel.postalCode}"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:textSize="@dimen/rajawali_14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/rajawali_32dp"
+                    android:fontFamily="@font/font_semi_bold"
+                    android:gravity="center_horizontal"
+                    android:text="Data Kontak Darurat"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/rajawali_16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/rajawali_8dp"
+                    android:background="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:text="Nama"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_10sdp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:fontFamily="@font/font_regular"
+                    android:hint="Nama"
+                    android:imeOptions="actionNext"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                    android:maxLines="1"
+                    android:padding="@dimen/rajawali_12dp"
+                    android:text="@={viewModel.registerModel.emergencyContactFullName}"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:textSize="@dimen/rajawali_14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:text="Hubungan"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_10sdp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/relationshipTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:drawableEnd="@drawable/ic_white_drop_down"
+                    android:fontFamily="@font/font_regular"
+                    android:gravity="center_vertical"
+                    android:hint="Hubungan"
+                    android:maxLines="1"
+                    android:onClick="@{ () -> activity.onEmergencyContactRelationship()}"
+                    android:padding="@dimen/rajawali_12dp"
+                    android:text="@={viewModel.registerModel.emergencyContactRelationship}"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textSize="@dimen/rajawali_14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:text="Nomor HP"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_10sdp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:fontFamily="@font/font_regular"
+                    android:hint="Nomor Handphone"
+                    android:imeOptions="actionDone"
+                    android:inputType="phone"
+                    android:maxLines="1"
+                    android:padding="@dimen/rajawali_12dp"
+                    android:text="@={viewModel.registerModel.emergencyContactPhoneNumber}"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:textSize="@dimen/rajawali_14sp" />
+
+                <TextView
+                    android:id="@+id/errorMessageTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:visibility="gone"
+                    android:fontFamily="@font/font_regular"
+                    android:text="@{viewModel.errorsMessage}"
+                    app:isVisible="@{viewModel.errorsMessage.length() > 0}"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_11sdp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_gravity="end"
+            android:layout_marginBottom="@dimen/rajawali_16dp"
+            android:background="@drawable/ic_button"
+            android:fontFamily="@font/font_semi_bold"
+            android:letterSpacing="0.1"
+            android:onClick="@{ () -> activity.onContinue()}"
+            android:paddingLeft="@dimen/rajawali_16dp"
+            android:paddingRight="@dimen/rajawali_16dp"
+            android:text="Lanjutkan"
+            android:textColor="@color/white"
+            android:textSize="@dimen/rajawali_16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

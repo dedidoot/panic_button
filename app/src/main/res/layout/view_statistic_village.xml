@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_grey_gelap2"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/villageName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_regular"
+            android:layout_marginEnd="80dp"
+            android:padding="@dimen/rajawali_12dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="RW.1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/rajawali_14sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/seeVillageName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_regular"
+            android:layout_gravity="end"
+            android:padding="@dimen/rajawali_12dp"
+            android:text="Lihat"
+            android:textColor="@color/white"
+            android:textSize="@dimen/rajawali_14sp" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dirawat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/orange_stats"
+            android:fontFamily="@font/font_regular"
+            android:gravity="center"
+            android:paddingTop="@dimen/rajawali_12dp"
+            android:paddingBottom="@dimen/rajawali_12dp"
+            android:text="Dirawat\n3"
+            android:textColor="@color/white"
+            android:textSize="@dimen/rajawali_14sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/meninggal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_1sdp"
+            android:layout_marginRight="@dimen/_1sdp"
+            android:layout_weight="1"
+            android:background="@color/red_stats"
+            android:fontFamily="@font/font_regular"
+            android:gravity="center"
+            android:paddingTop="@dimen/rajawali_12dp"
+            android:paddingBottom="@dimen/rajawali_12dp"
+            android:text="Meninggal\n0"
+            android:textColor="@color/white"
+            android:textSize="@dimen/rajawali_14sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sembuh"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/green_stats"
+            android:fontFamily="@font/font_regular"
+            android:gravity="center"
+            android:paddingTop="@dimen/rajawali_12dp"
+            android:paddingBottom="@dimen/rajawali_12dp"
+            android:text="Sembuh\n3"
+            android:textColor="@color/white"
+            android:textSize="@dimen/rajawali_14sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

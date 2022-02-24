@@ -1,0 +1,210 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.panic.button">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- Keeps the processor from sleeping when a message is received. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <supports-screens
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <application
+        android:name=".core.base.BaseApplication"
+        android:allowBackup="true"
+        android:fullBackupContent="false"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_app"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_app"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        android:largeHeap="true"
+        tools:targetApi="m">
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".feature.splash.SplashActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".feature.login.LoginActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.register.RegisterActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.termcondition.TermConditionActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.registerprofile.RegisterProfileActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.ktpupload.IdentityCardActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.ktpupload.SuccessActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.panic.PanicButtonActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.home.HomeActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.covid.CovidActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.prayer.PrayerScheduleActivity"
+            android:screenOrientation="portrait" />
+
+        <receiver android:name=".core.base.PrayerScheduleReceiver" />
+        <receiver android:name=".feature.location_interval.LocationIntervalReceiver" />
+        <receiver android:name=".feature.shortcutbutton.ScreenReceiver" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="@string/file_provider_authority"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_path" />
+        </provider>
+
+        <service
+            android:name=".core.base.FCMService"
+            android:exported="false"
+            android:stopWithTask="false">
+            <intent-filter android:priority="1">
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.hassanjamil.hqibla.CompassActivity"
+            android:label="Kiblat"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.skck.SkckActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.ronda.RondaActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.police.PoliceActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.police.HistoryPoliceActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.police.HistoryDetailActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.police.SubmitReportActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.police.StreamingPoliceActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.police.ReportSuccessActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.news.NewsActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.lostletter.LostLetterActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".core.base.RajawaliWebView"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.reportpolice.ReportPoliceActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.police.CovidOfficerActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.reportpolice.HistoryReportActivity"
+            android:screenOrientation="portrait" />
+
+        <service android:name=".feature.shortcutbutton.LockService"
+            android:stopWithTask="false"
+            android:exported="false">
+            <intent-filter android:priority="1">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name=".core.base.notification.NotificationReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="restartservice" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".core.base.notification.NotificationService"
+            android:enabled="true" />
+
+        <service
+            android:name=".core.base.notification.OnClearFromRecentService"
+            android:stopWithTask="false" />
+
+    </application>
+
+</manifest>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.panic.button.feature.termcondition.TermConditionActivity" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/middleGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/backImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/rajawali_16dp"
+            android:layout_marginTop="@dimen/rajawali_16dp"
+            android:onClick="@{ () -> activity.onBackPressed()}"
+            android:paddingStart="0dp"
+            android:paddingEnd="@dimen/rajawali_16dp"
+            android:paddingBottom="@dimen/rajawali_16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/font_bold"
+            android:gravity="center_horizontal"
+            android:letterSpacing="0.02"
+            android:text="Term &amp; Condition"
+            android:textAllCaps="true"
+            android:textSize="@dimen/rajawali_18sp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/backImageView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/backImageView" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tacImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/rajawali_12dp"
+            android:layout_marginTop="@dimen/rajawali_24dp"
+            android:src="@drawable/ic_tac"
+            app:layout_constraintRight_toLeftOf="@+id/line1"
+            app:layout_constraintTop_toBottomOf="@+id/backImageView" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/line1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_line"
+            app:layout_constraintBottom_toBottomOf="@+id/tacImageView"
+            app:layout_constraintRight_toLeftOf="@+id/profileImageView"
+            app:layout_constraintTop_toTopOf="@+id/tacImageView" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/profileImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_profile"
+            app:layout_constraintBottom_toBottomOf="@+id/tacImageView"
+            app:layout_constraintLeft_toLeftOf="@+id/middleGuideline"
+            app:layout_constraintRight_toRightOf="@+id/middleGuideline"
+            app:layout_constraintTop_toTopOf="@+id/tacImageView" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/line2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_line"
+            app:layout_constraintBottom_toBottomOf="@+id/profileImageView"
+            app:layout_constraintLeft_toRightOf="@+id/profileImageView"
+            app:layout_constraintTop_toTopOf="@+id/profileImageView" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ktpImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_ktp"
+            app:layout_constraintBottom_toBottomOf="@+id/tacImageView"
+            app:layout_constraintLeft_toRightOf="@+id/line2"
+            app:layout_constraintTop_toTopOf="@+id/tacImageView" />
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/rajawali_16dp"
+            android:layout_marginTop="@dimen/rajawali_32dp"
+            android:layout_marginRight="@dimen/rajawali_16dp"
+            android:layout_marginBottom="@dimen/rajawali_16dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/checkBox"
+            app:layout_constraintTop_toBottomOf="@+id/tacImageView">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/termConditionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/rajawali_16dp"
+                android:fontFamily="@font/font_regular"
+                android:lineSpacingExtra="4sp"
+                android:textColor="@color/colorAccent" />
+        </ScrollView>
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/rajawali_16dp"
+            android:layout_marginTop="@dimen/rajawali_16dp"
+            android:layout_marginBottom="@dimen/rajawali_16dp"
+            android:fontFamily="@font/font_regular"
+            android:layoutDirection="rtl"
+            android:text="Ya, saya setuju"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/rajawali_18sp"
+            app:buttonTint="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_gravity="end"
+            android:layout_marginBottom="@dimen/rajawali_32dp"
+            android:background="@drawable/ic_button"
+            android:fontFamily="@font/font_semi_bold"
+            android:letterSpacing="0.1"
+            android:onClick="@{ () -> activity.onContinue()}"
+            android:paddingLeft="@dimen/rajawali_16dp"
+            android:paddingRight="@dimen/rajawali_16dp"
+            android:text="Lanjutkan"
+            android:textColor="@color/white"
+            android:textSize="@dimen/rajawali_16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:indeterminateTint="@color/red"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

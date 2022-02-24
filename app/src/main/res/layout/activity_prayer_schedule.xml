@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.panic.button.feature.prayer.PrayerScheduleActivity" />
+
+        <variable
+            name="viewModel"
+            type="com.panic.button.feature.prayer.PrayerScheduleViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/backImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/rajawali_16dp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:onClick="@{ () -> activity.onBackPressed()}"
+            android:paddingStart="0dp"
+            android:paddingEnd="@dimen/rajawali_16dp"
+            android:paddingBottom="@dimen/rajawali_16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/font_bold"
+            android:gravity="center_horizontal"
+            android:letterSpacing="0.02"
+            android:text="Jadwal Sholat"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/rajawali_18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/backImageView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/backImageView" />
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:isVisible="@{!viewModel.isLoading()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/backImageView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:isVisible="@{!viewModel.isLoading()}">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/dateTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:fontFamily="@font/font_bold"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="0.02"
+                    android:text="@{viewModel.date}"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/rajawali_18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/prayerScheduleNameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:fontFamily="@font/font_bold"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="0.02"
+                    android:text="@{viewModel.lastScheduleName}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/rajawali_18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dateTextView" />
+
+                <CheckBox
+                    android:id="@+id/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:button="@null"
+                    android:checked="false"
+                    android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
+                    android:fontFamily="@font/font_regular"
+                    android:text="Pengingat"
+                    android:textColor="@color/white"
+                    android:theme="@style/CheckBoxStyle"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dateTextView" />
+
+                <View
+                    android:id="@+id/lineView"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:background="@color/grey"
+                    app:layout_constraintTop_toBottomOf="@+id/prayerScheduleNameTextView" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/messageTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:letterSpacing="0.02"
+                    android:lineSpacingExtra="@dimen/_2sdp"
+                    android:text="3 Jam 20 Menit Lagi Masuk Waktu Zuhur"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/rajawali_18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lineView" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@+id/messageTextView">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:background="@drawable/ic_button"
+                        android:fontFamily="@font/font_semi_bold"
+                        android:letterSpacing="0.1"
+                        android:onClick="@{ () -> activity.onKiblat()}"
+                        android:paddingLeft="@dimen/rajawali_16dp"
+                        android:paddingRight="@dimen/rajawali_16dp"
+                        android:text="Arah Kiblat"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/rajawali_16sp" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/rajawali_24dp"
+                        android:background="@drawable/bg_grey_radius_4"
+                        android:padding="@dimen/rajawali_12dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/font_regular"
+                            android:text="Imsyak"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/rajawali_14sp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:fontFamily="@font/font_regular"
+                            android:text="@{viewModel.getTiming(viewModel.prayerData.timings.imsak)}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/rajawali_14sp" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/rajawali_16dp"
+                        android:background="@drawable/bg_grey_radius_4"
+                        android:padding="@dimen/rajawali_12dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/font_regular"
+                            android:text="Subuh"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/rajawali_14sp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:fontFamily="@font/font_regular"
+                            android:text="@{viewModel.getTiming(viewModel.prayerData.timings.fajr)}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/rajawali_14sp" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/rajawali_16dp"
+                        android:background="@drawable/bg_grey_radius_4"
+                        android:padding="@dimen/rajawali_12dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/font_regular"
+                            android:text="Matahari Terbit"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/rajawali_14sp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:fontFamily="@font/font_regular"
+                            android:text="@{viewModel.getTiming(viewModel.prayerData.timings.sunrise)}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/rajawali_14sp" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/rajawali_16dp"
+                        android:background="@drawable/bg_grey_radius_4"
+                        android:padding="@dimen/rajawali_12dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/font_regular"
+                            android:text="Dhuha"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/rajawali_14sp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:fontFamily="@font/font_regular"
+                            android:text="@{viewModel.getTiming(viewModel.prayerData.timings.sunrise)}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/rajawali_14sp" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/rajawali_16dp"
+                        android:background="@drawable/bg_grey_radius_4"
+                        android:padding="@dimen/rajawali_12dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/font_regular"
+                            android:text="Dzuhur"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/rajawali_14sp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:fontFamily="@font/font_regular"
+                            android:text="@{viewModel.getTiming(viewModel.prayerData.timings.dhuhr)}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/rajawali_14sp" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/rajawali_16dp"
+                        android:background="@drawable/bg_grey_radius_4"
+                        android:padding="@dimen/rajawali_12dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/font_regular"
+                            android:text="Ashr"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/rajawali_14sp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:fontFamily="@font/font_regular"
+                            android:text="@{viewModel.getTiming(viewModel.prayerData.timings.asr)}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/rajawali_14sp" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/rajawali_16dp"
+                        android:background="@drawable/bg_grey_radius_4"
+                        android:padding="@dimen/rajawali_12dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/font_regular"
+                            android:text="Magrib"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/rajawali_14sp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:fontFamily="@font/font_regular"
+                            android:text="@{viewModel.getTiming(viewModel.prayerData.timings.maghrib)}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/rajawali_14sp" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/rajawali_16dp"
+                        android:layout_marginBottom="@dimen/rajawali_24dp"
+                        android:background="@drawable/bg_grey_radius_4"
+                        android:padding="@dimen/rajawali_12dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/font_regular"
+                            android:text="Isya"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/rajawali_14sp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:fontFamily="@font/font_regular"
+                            android:text="@{viewModel.getTiming(viewModel.prayerData.timings.isha)}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/rajawali_14sp" />
+                    </FrameLayout>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/red"
+            app:isVisible="@{viewModel.isLoading()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

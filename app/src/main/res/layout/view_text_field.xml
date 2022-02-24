@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fieldTextInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
+        android:theme="@style/TextLabel">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textFieldInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_grey_radius_4"
+            android:fontFamily="@font/font_regular"
+            android:imeOptions="actionNext"
+            android:padding="@dimen/_8sdp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/grey"
+            android:textCursorDrawable="@drawable/cursor"
+            android:textSize="@dimen/_12sdp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+</layout>
+
+<!-- how to use ?
+
+<com.panic.button.core.base.view.TestView
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/rajawali_24dp"
+                    app:filterStringValue="@={viewModel.registerModel.name}"
+                    android:layout_height="wrap_content"/>
+
+-->

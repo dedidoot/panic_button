@@ -1,0 +1,119 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "kotlin-kapt"
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+
+def koin_version = '1.0.2'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.0"
+
+    defaultConfig {
+        applicationId "com.panic.button"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 23
+        versionName "2.0.1"
+        buildConfigField("String", "A_", "\"$A_\"")
+        buildConfigField("String", "C_", "\"$C_\"")
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    productFlavors {
+        staging {
+            dimension "v1"
+            buildConfigField("String", "BASE_URL", "\"http://jaktim-dev.test.com\"")
+        }
+        production {
+            dimension "v1"
+            buildConfigField("String", "BASE_URL", "\"http://jaktim.test.com\"")
+        }
+    }
+
+    flavorDimensions "v1"
+
+    buildTypes {
+        debug {
+            shrinkResources false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/ECLIPSE_.SF'
+        exclude 'META-INF/ECLIPSE_.RSA'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    implementation 'com.google.firebase:firebase-messaging:21.0.0'
+    implementation 'com.google.firebase:firebase-analytics:17.4.4'
+    implementation 'com.google.firebase:firebase-crashlytics:17.1.1'
+
+
+    final OKHTTP_VERSION = "4.7.2"
+    implementation "com.squareup.okhttp3:logging-interceptor:$OKHTTP_VERSION"
+    implementation "com.squareup.okhttp3:okhttp:$OKHTTP_VERSION"
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
+
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-android-scope:$koin_version"
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'io.fotoapparat:fotoapparat:2.7.0'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.6"
+    implementation 'com.hassanjamil:qibla:0.2.2'
+
+    implementation 'pub.devrel:easypermissions:0.4.0'
+    implementation 'com.android.volley:volley:1.1.0'
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
+    implementation 'com.google.firebase:firebase-config:19.2.0'
+    implementation 'com.google.firebase:firebase-analytics:17.5.0'
+    implementation("com.squareup.okhttp3:okhttp-urlconnection:4.4.1")
+    implementation 'org.greenrobot:eventbus:3.2.0'
+    implementation 'id.zelory:compressor:3.0.0'
+
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    implementation 'androidx.browser:browser:1.3.0'
+}

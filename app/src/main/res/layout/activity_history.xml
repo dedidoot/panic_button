@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/settingImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onBack"
+            android:padding="16dp"
+            app:srcCompat="@drawable/ic_back_grey" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="110dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            app:srcCompat="@drawable/ic_panic_button_text" />
+
+    </FrameLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="History"
+        android:textColor="#9F9F9F"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <include
+        android:id="@+id/historyView1"
+        layout="@layout/view_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="onDetail" />
+
+    <include
+        android:id="@+id/historyView2"
+        layout="@layout/view_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="onDetail" />
+
+    <include
+        android:id="@+id/historyView3"
+        layout="@layout/view_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="onDetail" />
+
+</LinearLayout>

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.panic.button.feature.skck.EducationFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.panic.button.feature.skck.SkckViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_regular"
+                android:text="Data Pendidikan 1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/educationType1TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_16dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Jenis Pendidikan"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onEducationType1()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/educationName1TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_24dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:hint="Nama Institusi"
+                android:imeOptions="actionNext"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepThreeModel.education_1_institution_name}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/educationYear1TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_24dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:hint="Tahun Tamat"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepThreeModel.education_1_year_of_grade}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:fontFamily="@font/font_regular"
+                android:text="Data Pendidikan 2"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/educationType2TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Jenis Pendidikan"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onEducationType2()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/educationName2TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_24dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:hint="Nama Institusi"
+                android:imeOptions="actionNext"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepThreeModel.education_2_institution_name}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/educationYear2TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_24dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:hint="Tahun Tamat"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepThreeModel.education_2_year_of_grade}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:fontFamily="@font/font_regular"
+                android:text="Data Pendidikan 3"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/educationType3TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Jenis Pendidikan"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onEducationType3()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/educationName3TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_24dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:hint="Nama Institusi"
+                android:imeOptions="actionNext"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepThreeModel.education_3_institution_name}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/educationYear3TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_24dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:hint="Tahun Tamat"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepThreeModel.education_3_year_of_grade}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <TextView
+                android:id="@+id/errorMessageTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:visibility="gone"
+                android:fontFamily="@font/font_regular"
+                android:text="@{viewModel.stepThreeErrorsMessage}"
+                app:isVisible="@{viewModel.stepThreeErrorsMessage.length() > 0}"
+                android:textColor="@color/red"
+                android:textSize="@dimen/_11sdp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

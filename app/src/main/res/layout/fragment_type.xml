@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.panic.button.feature.lostletter.TypeFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.panic.button.feature.lostletter.LostLetterViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/lostLetterView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginRight="@dimen/_12sdp"
+                android:orientation="vertical" />
+
+            <Button
+                isVisible="@{!viewModel.isLoading()}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginRight="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:background="@drawable/bg_button_gradient"
+                android:fontFamily="@font/font_semi_bold"
+                android:letterSpacing="0.1"
+                android:onClick="@{ ()-> fragment.onContinue() }"
+                android:paddingLeft="@dimen/rajawali_16dp"
+                android:paddingRight="@dimen/rajawali_16dp"
+                android:text="Lanjutkan"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

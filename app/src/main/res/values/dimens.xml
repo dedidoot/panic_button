@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="rajawali_2dp">2dp</dimen>
+    <dimen name="rajawali_10dp">10dp</dimen>
+    <dimen name="rajawali_8dp">8dp</dimen>
+    <dimen name="rajawali_12dp">12dp</dimen>
+    <dimen name="rajawali_16dp">16dp</dimen>
+    <dimen name="rajawali_24dp">24dp</dimen>
+    <dimen name="rajawali_16sp">16sp</dimen>
+    <dimen name="rajawali_6sp">6sp</dimen>
+    <dimen name="rajawali_14sp">14sp</dimen>
+    <dimen name="rajawali_32dp">32dp</dimen>
+    <dimen name="rajawali_48dp">48dp</dimen>
+    <dimen name="rajawali_4dp">4dp</dimen>
+    <dimen name="rajawali_5dp">5dp</dimen>
+    <dimen name="rajawali_6dp">6dp</dimen>
+    <dimen name="rajawali_64dp">64dp</dimen>
+    <dimen name="rajawali_100dp">100dp</dimen>
+    <dimen name="rajawali_80dp">80dp</dimen>
+    <dimen name="rajawali_18sp">18sp</dimen>
+    <dimen name="rajawali_12sp">12sp</dimen>
+    <dimen name="rajawali_30dp">30dp</dimen>
+</resources>

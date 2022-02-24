@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.panic.button.feature.skck.OtherFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.panic.button.feature.skck.SkckViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_regular"
+                android:text="Data Lainnya"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:fontFamily="@font/font_regular"
+                android:text="Negara yg terakhir dikunjungi?"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_9sdp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepFiveModel.other_1_answer}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:fontFamily="@font/font_regular"
+                android:text="Tahun dikunjungi?"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_9sdp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepFiveModel.other_2_answer}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:fontFamily="@font/font_regular"
+                android:text="Negara yg terakhir dikunjungi dalam keperluan apa?"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_9sdp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepFiveModel.other_3_answer}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:fontFamily="@font/font_regular"
+                android:text="Hobi/Kegemaran/Kesenangan*?"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_9sdp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepFiveModel.other_4_answer}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:fontFamily="@font/font_regular"
+                android:text="No. Telp yg mudah dihubungi*?"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_9sdp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:imeOptions="actionDone"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepFiveModel.other_5_answer}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <TextView
+                android:id="@+id/errorMessageTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:fontFamily="@font/font_regular"
+                android:text="@{viewModel.stepFiveErrorsMessage}"
+                android:textColor="@color/red"
+                android:textSize="@dimen/_11sdp"
+                android:visibility="gone"
+                app:isVisible="@{viewModel.stepFiveErrorsMessage.length() > 0}" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp" />
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

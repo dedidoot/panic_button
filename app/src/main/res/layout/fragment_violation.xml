@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.panic.button.feature.skck.ViolationFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.panic.button.feature.skck.SkckViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_regular"
+                android:text="Data Pelanggaran"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_regular"
+                android:text="Apakah saudara pernah tersangkut perkara pidana*?"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:textSize="@dimen/_9sdp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/pernahPidanaTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Iya/Tidak"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onPernahPidana()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <TextView
+                android:id="@+id/perkaraTextView"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_regular"
+                android:text="Dalam perkara apa?"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:textSize="@dimen/_9sdp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/perkaraEditText"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepFourModel.criminals_2_answer}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <TextView
+                android:id="@+id/vonisTextView"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_regular"
+                android:text="Bagaimana putusannya dan vonis hakim?"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:textSize="@dimen/_9sdp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/vonisEditText"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepFourModel.criminals_3_answer}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_regular"
+                android:text="Apakah sedang dalam proses perkara pidana?"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:textSize="@dimen/_9sdp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/sedangProsesPidanaTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Iya/Tidak"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onSedangProsesPidana()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <TextView
+                android:id="@+id/caseTextView"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_regular"
+                android:text="Kasus apa?"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:textSize="@dimen/_9sdp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/caseEditText"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepFourModel.criminals_5_answer}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <TextView
+                android:id="@+id/caseNameTextView"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_regular"
+                android:text="Sampai sejauh mana proses hukumnya?"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:textSize="@dimen/_9sdp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/caseNameEditText"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepFourModel.criminals_6_answer}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_regular"
+                android:text="Apakah saudara pernah melakukan pelanggaran hukum/norma sosial?"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:textSize="@dimen/_9sdp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/pernahPelanggaranHukumTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:drawableEnd="@drawable/ic_white_drop_down"
+                android:fontFamily="@font/font_regular"
+                android:gravity="center_vertical"
+                android:hint="Iya/Tidak"
+                android:maxLines="1"
+                android:onClick="@{ () -> fragment.onPernahPelanggaranHukum()}"
+                android:padding="@dimen/rajawali_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <TextView
+                android:id="@+id/penaltyTextView"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_regular"
+                android:text="Pelanggaran hukum/norma sosial apa?"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:textSize="@dimen/_9sdp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/penaltyEditText"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepFourModel.criminals_8_answer}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <TextView
+                android:id="@+id/penaltyTimeTextView"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_regular"
+                android:text="Sampai sejauh mana prosesnya?"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:textSize="@dimen/_9sdp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/penaltyTimeEditText"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rajawali_8dp"
+                android:background="@drawable/bg_grey_radius_4"
+                android:fontFamily="@font/font_regular"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/rajawali_12dp"
+                android:text="@={viewModel.skckStepFourModel.criminals_9_answer}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="@dimen/rajawali_14sp" />
+
+            <TextView
+                android:id="@+id/errorMessageTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:fontFamily="@font/font_regular"
+                android:text="@{viewModel.stepFourErrorsMessage}"
+                android:textColor="@color/red"
+                android:textSize="@dimen/_11sdp"
+                android:visibility="gone"
+                app:isVisible="@{viewModel.stepFourErrorsMessage.length() > 0}" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

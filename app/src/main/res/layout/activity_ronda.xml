@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.panic.button.feature.ronda.RondaActivity" />
+
+
+        <variable
+            name="viewModel"
+            type="com.panic.button.feature.ronda.RondaViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/middleGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/backImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/rajawali_16dp"
+            android:layout_marginTop="@dimen/rajawali_16dp"
+            android:onClick="@{ () -> activity.onBackPressed()}"
+            android:paddingStart="0dp"
+            android:paddingEnd="@dimen/rajawali_16dp"
+            android:paddingBottom="@dimen/rajawali_16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titleBar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/font_bold"
+            android:gravity="center_horizontal"
+            android:letterSpacing="0.02"
+            android:text="Ronda"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/rajawali_18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/backImageView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/backImageView" />
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            android:layout_marginLeft="@dimen/rajawali_16dp"
+            android:layout_marginTop="@dimen/rajawali_32dp"
+            android:layout_marginRight="@dimen/rajawali_16dp"
+            android:layout_marginBottom="@dimen/rajawali_16dp"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintTop_toBottomOf="@+id/backImageView">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:onClick="@{()->activity.onVideo()}"
+                    app:srcCompat="@drawable/ic_upload_video" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:textColor="@color/white"
+                    android:text="Maksimal 4 video"
+                    android:textSize="@dimen/_8sdp" />
+
+                <TextView
+                    android:id="@+id/videoNameTextView"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:lineSpacingExtra="6dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:fontFamily="@font/font_regular"
+                    android:text="Laporan"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/rajawali_24dp"
+                    android:layout_marginBottom="@dimen/rajawali_24dp"
+                    android:background="@drawable/bg_grey_radius_4"
+                    android:fontFamily="@font/font_regular"
+                    android:gravity="top"
+                    android:hint=""
+                    android:imeOptions="actionDone"
+                    android:inputType="textMultiLine"
+                    android:minLines="3"
+                    android:padding="@dimen/rajawali_12dp"
+                    android:text="@={viewModel.report}"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:textSize="@dimen/rajawali_14sp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_gravity="end"
+            android:layout_marginBottom="@dimen/rajawali_16dp"
+            android:background="@drawable/ic_button"
+            android:fontFamily="@font/font_semi_bold"
+            android:letterSpacing="0.1"
+            android:onClick="@{ () -> activity.onSave()}"
+            android:paddingLeft="@dimen/rajawali_16dp"
+            android:paddingRight="@dimen/rajawali_16dp"
+            android:visibility="gone"
+            app:isVisible="@{!viewModel.isLoading()}"
+            android:text="Kirim"
+            android:textColor="@color/white"
+            android:textSize="@dimen/rajawali_16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/red"
+            app:isVisible="@{viewModel.isLoading()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
